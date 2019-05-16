@@ -18,10 +18,9 @@ func (p *Progress) Start() {
 	p.start = time.Now()
 }
 
-func (p *Progress) End() (dur time.Duration, remains time.Duration) {
-	dur = time.Now().Sub(p.start)
+func (p *Progress) End() (remains time.Duration) {
+	dur := time.Now().Sub(p.start)
 	remains = time.Duration(int(dur) * (p.total - p.index))
 	p.index++
 	return
 }
-
